@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity App Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="https://via.placeholder.com/40" alt="Logo" class="logo" aria-label="Productivity App Logo">
+            <ul role="navigation">
+                <li><a href="#home" aria-label="Go to Home section">Home</a></li>
+                <li><a href="#features" aria-label="Go to Features section">Features</a></li>
+                <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Boost Your Productivity</h1>
+        <p>Streamline your tasks with our intuitive app designed for efficiency.</p>
+        <a href="#contact" class="cta-button" role="button">Get Started</a>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why Choose Our App?</h2>
+        <div class="feature-grid">
+            <div class="feature-item" role="article">
+                <img src="https://via.placeholder.com/100" alt="Task Management Icon" loading="lazy">
+                <h3>Task Management</h3>
+                <p>Organize tasks with ease and never miss a deadline.</p>
+            </div>
+            <div class="feature-item" role="article">
+                <img src="https://via.placeholder.com/100" alt="Cross-Device Sync Icon" loading="lazy">
+                <h3>Cross-Device Sync</h3>
+                <p>Access your tasks anywhere, anytime.</p>
+            </div>
+            <div class="feature-item" role="article">
+                <img src="https://via.placeholder.com/100" alt="Analytics Dashboard Icon" loading="lazy">
+                <h3>Analytics Dashboard</h3>
+                <p>Track your productivity with insightful metrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Contact us: <a href="mailto:support@productivityapp.com">support@productivityapp.com</a></p>
+        <div class="social-links">
+            <a href="#" aria-label="Follow us on Twitter">Twitter</a>
+            <a href="#" aria-label="Connect with us on LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Follow us on Instagram">Instagram</a>
+        </div>
+        <p>© 2025 Productivity App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+    </script>
+</body>
+</html>
